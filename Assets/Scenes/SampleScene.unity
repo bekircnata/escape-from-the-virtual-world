@@ -467,7 +467,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.0029836297}
+  m_Offset: {x: 0.0037460327, y: -0.0045084357}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -478,7 +478,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3647528, y: 1.4865438}
+  m_Size: {x: 1.2523727, y: 1.3666717}
   m_EdgeRadius: 0
 --- !u!50 &733798276
 Rigidbody2D:
@@ -551,7 +551,7 @@ GameObject:
   - component: {fileID: 758764200}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1821,31 +1821,31 @@ CompositeCollider2D:
   - m_Collider: {fileID: 758764202}
     m_ColliderPaths:
     - - X: 120000000
-        Y: -20050002
+        Y: -20000000
       - X: -100000000
-        Y: -20050002
+        Y: -20000000
       - X: -100000000
-        Y: -50125008
+        Y: -50000000
       - X: 120000000
-        Y: -50125008
+        Y: -50000000
     - - X: 300000000
-        Y: -20050002
+        Y: -20000000
       - X: 170000000
-        Y: -20050002
+        Y: -20000000
       - X: 170000000
-        Y: -50125008
+        Y: -50000000
       - X: 300000000
-        Y: -50125008
+        Y: -50000000
   m_CompositePaths:
     m_Paths:
-    - - {x: 29.999971, y: -5.012501}
-      - {x: 29.999971, y: -2.005}
-      - {x: 17, y: -2.0050297}
-      - {x: 17.000029, y: -5.012501}
-    - - {x: 11.99997, y: -5.012501}
-      - {x: 11.99997, y: -2.005}
-      - {x: -10, y: -2.0050297}
-      - {x: -9.99997, y: -5.012501}
+    - - {x: 29.999971, y: -5}
+      - {x: 29.999971, y: -2}
+      - {x: 17, y: -2.0000293}
+      - {x: 17.000029, y: -5}
+    - - {x: 11.99997, y: -5}
+      - {x: 11.99997, y: -2}
+      - {x: -10, y: -2.0000293}
+      - {x: -9.99997, y: -5}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
 --- !u!50 &758764201

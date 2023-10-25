@@ -7,10 +7,14 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D playerRb;
     private Animator anim;
     private SpriteRenderer sprite;
-    private float horizontal = 0;
+    private float horizontalInput = 0;
 
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private float jumpForce = 7f;
+
+    private bool isItOnTheGround = false;
+
+    private enum MovementState { idle, running, jumping, falling};
 
     void Start()
     {
@@ -25,14 +29,23 @@ public class PlayerMovement : MonoBehaviour
         AnimationUpdate();
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Terrain"))
+        {
+            isItOnTheGround = true;
+        }
+    }
+
     private void Movement()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
-        playerRb.velocity = new Vector2(horizontal * moveSpeed, playerRb.velocity.y);
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        playerRb.velocity = new Vector2(horizontalInput * moveSpeed, playerRb.velocity.y);
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && isItOnTheGround)
         {
             playerRb.velocity = new Vector2(playerRb.velocity.x, jumpForce);
+            isItOnTheGround = false;
         }
 
 
@@ -40,19 +53,27 @@ public class PlayerMovement : MonoBehaviour
 
     private void AnimationUpdate()
     {
-        if (horizontal > 0)
+        MovementState state;
+        bool isMovingHorizontally = Mathf.Abs(horizontalInput) > 0.1f;
+
+        if (isMovingHorizontally)
         {
-            anim.SetBool("running", true);
-            sprite.flipX = false;
-        }
-        else if (horizontal < 0)
-        {
-            anim.SetBool("running", true);
-            sprite.flipX = true;
+            state = MovementState.running;
+            sprite.flipX = horizontalInput < 0;
         }
         else
         {
-            anim.SetBool("running", false);
+            state = MovementState.idle;
         }
+
+        if(playerRb.velocity.y > 0.1f)
+        {
+            state = MovementState.jumping;
+        }else if(playerRb.velocity.y < -0.1f)
+        {
+            state = MovementState.falling;
+        }
+
+        anim.SetInteger("state", (int)state);
     }
 }
