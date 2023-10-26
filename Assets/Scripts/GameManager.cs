@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public int collectedItem = 0;
     [SerializeField] private TextMeshProUGUI pineappleCount;
+
     void Start()
     {
         
