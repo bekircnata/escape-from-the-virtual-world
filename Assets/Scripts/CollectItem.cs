@@ -5,6 +5,7 @@ using UnityEngine;
 public class CollectItem : MonoBehaviour
 {
     private Animator anim;
+    [SerializeField] private GameManager gameManager;
 
     void Start()
     {
@@ -21,6 +22,7 @@ public class CollectItem : MonoBehaviour
         if(collision.gameObject.name == "Player")
         {
             anim.SetBool("collecting", true);
+            gameManager.collectedItem += 1;
         }
     }
 
