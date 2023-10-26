@@ -25,12 +25,12 @@ public class CollectItem : MonoBehaviour
         {
             anim.SetBool("collecting", true);
             audioSource.Play();
-            gameManager.collectedItem += 1;
         }
     }
 
     public void DestroyCollectibleItem()
     {
+        gameManager.collectedItem += 1;
         Destroy(gameObject);
     }
 }
