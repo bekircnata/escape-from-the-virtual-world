@@ -7,10 +7,12 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D playerRb;
     private Animator anim;
     private SpriteRenderer sprite;
+    private AudioSource audioSource;
     private float horizontalInput = 0;
 
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private float jumpForce = 7f;
+    [SerializeField] private AudioClip jumpSoundEffect;
 
     private bool isItOnTheGround = false;
 
@@ -21,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
         playerRb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -45,6 +48,8 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isItOnTheGround)
         {
             playerRb.velocity = new Vector2(playerRb.velocity.x, jumpForce);
+            audioSource.clip = jumpSoundEffect;
+            audioSource.Play();
             isItOnTheGround = false;
         }
 
