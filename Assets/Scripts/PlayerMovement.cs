@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpForce = 7f;
     [SerializeField] private AudioClip jumpSoundEffect;
 
-    private bool isItOnTheGround = false;
+    public bool isItOnTheGround = false;
 
     private enum MovementState { idle, running, jumping, falling};
 
