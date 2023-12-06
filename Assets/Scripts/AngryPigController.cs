@@ -25,7 +25,7 @@ public class AngryPigController : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             anim.SetBool("hit_the_player", true);
-        }else if(collision.gameObject.CompareTag("Trap"))
+        }else if(collision.gameObject.CompareTag("Trap") || collision.gameObject.CompareTag("Bullet"))
         {
             anim.SetBool("isDeath", true);
         }
