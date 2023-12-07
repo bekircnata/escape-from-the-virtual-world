@@ -22,7 +22,7 @@ public class AngryPigController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.name == "Player")
         {
             anim.SetBool("hit_the_player", true);
         }else if(collision.gameObject.CompareTag("Trap") || collision.gameObject.CompareTag("Bullet"))
