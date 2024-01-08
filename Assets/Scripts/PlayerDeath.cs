@@ -24,6 +24,16 @@ public class PlayerDeath : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Trap") || collision.gameObject.CompareTag("Enemie"))
+        {
+            anim.SetTrigger("death");
+            audioSource.clip = deathSoundEffect;
+            audioSource.Play();
+        }
+    }
+
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
