@@ -5,10 +5,6 @@ using UnityEngine;
 public class SpinAround : MonoBehaviour
 {
     [SerializeField] private float spinSpeed = 2f;
-    void Start()
-    {
-        
-    }
 
     void Update()
     {

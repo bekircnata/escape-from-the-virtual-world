@@ -11,16 +11,6 @@ public class EnemyAttackDistance : MonoBehaviour
     private float distanceToPlayer;
     public bool playerDetected = false;
 
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
         distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
